@@ -1,0 +1,22 @@
+{
+  "name": "YYBottomSheet",
+  "version": "0.1.0",
+  "summary": "A short description of YYBottomSheet.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Yeom/YYBottomSheet",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yeom": "dev.yeom@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Yeom/YYBottomSheet.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "YYBottomSheet/Classes/**/*"
+}

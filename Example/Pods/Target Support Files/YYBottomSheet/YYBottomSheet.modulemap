@@ -1,0 +1,6 @@
+framework module YYBottomSheet {
+  umbrella header "YYBottomSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}

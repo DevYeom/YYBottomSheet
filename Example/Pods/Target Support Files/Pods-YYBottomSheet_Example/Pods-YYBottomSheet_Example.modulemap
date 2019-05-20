@@ -1,0 +1,6 @@
+framework module Pods_YYBottomSheet_Example {
+  umbrella header "Pods-YYBottomSheet_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

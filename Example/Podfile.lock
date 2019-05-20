@@ -1,0 +1,16 @@
+PODS:
+  - YYBottomSheet (0.1.0)
+
+DEPENDENCIES:
+  - YYBottomSheet (from `../`)
+
+EXTERNAL SOURCES:
+  YYBottomSheet:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YYBottomSheet: 445e11b4408c45edd08a443b10ea60187d15ce4b
+
+PODFILE CHECKSUM: c32201b8fa73bc02240c6bca52eb0efaaf1b17ac
+
+COCOAPODS: 1.6.2

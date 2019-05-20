@@ -22,7 +22,7 @@ pod 'YYBottomSheet'
 
 ## Author
 
-Yeom, dev.yeom@gmail.com
+DevYeom, dev.yeom@gmail.com
 
 ## License
 
