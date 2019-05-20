@@ -11,14 +11,9 @@ Pod::Spec.new do |s|
 	s.version          = '1.0.0'
 	s.summary          = 'Very Simple and Useful Bottom Sheet'
 
-	# This description is used to generate tags and improve search results.
-	#   * Think: What does it do? Why did you write it? What is the focus?
-	#   * Try to keep it short, snappy and to the point.
-	#   * Write the description between the DESC delimiters below.
-	#   * Finally, don't worry about the indent, CocoaPods strips it!
-
 	s.description      = <<-DESC
-	TODO: Add long description of the pod here.
+	When you need to let user choose one of several, you can use YYBottomSheet.
+	Simple And Clear 😎
 	DESC
 
 	s.homepage         = 'https://github.com/DevYeom/YYBottomSheet'
