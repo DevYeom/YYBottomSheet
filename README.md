@@ -13,7 +13,7 @@ When you need to let user choose one of several, you can use YYBottomSheet. Simp
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![](sample.gif)
+![](demo.gif)
 
 ## Usage
 
