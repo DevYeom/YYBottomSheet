@@ -1,6 +1,6 @@
 # YYBottomSheet
 
-[![CI Status](https://img.shields.io/travis/Yeom/YYBottomSheet.svg?style=flat)](https://travis-ci.org/Yeom/YYBottomSheet)
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![Version](https://img.shields.io/cocoapods/v/YYBottomSheet.svg?style=flat)](https://cocoapods.org/pods/YYBottomSheet)
 [![License](https://img.shields.io/cocoapods/l/YYBottomSheet.svg?style=flat)](https://cocoapods.org/pods/YYBottomSheet)
 [![Platform](https://img.shields.io/cocoapods/p/YYBottomSheet.svg?style=flat)](https://cocoapods.org/pods/YYBottomSheet)
