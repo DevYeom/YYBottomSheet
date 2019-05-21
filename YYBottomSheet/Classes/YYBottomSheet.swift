@@ -40,8 +40,11 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 	public var tableViewHeight: CGFloat = YYBottomSheet.TableViewHeight
 	public var headerViewHeight: CGFloat = YYBottomSheet.HeaderViewHeight
 	public var headerViewWidth: CGFloat = YYBottomSheet.HeaderViewWidth
-	public var dataArray: [String] = [] // data array to show in the table view
+	public var tableRowHeight: CGFloat = YYBottomSheet.TableRowHeight
+	public var tableViewCellLabelTextColor: UIColor = YYBottomSheet.TableViewCellLabelTextColor
 	public var headerViewTitle: String = ""
+
+	public var dataArray: [String] = [] // data array to show in the table view
 
 	// outside touch gesture
 	public var tapOutsideTouchGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
@@ -78,7 +81,14 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 		}
 	}
 
-	public var tableViewCellLabelTextColor: UIColor = YYBottomSheet.TableViewCellLabelTextColor
+	public var backgroundAlpha: CGFloat = YYBottomSheet.BackgroundAlpha {
+		didSet {
+			weak var weakSelf = self
+			if let weakSelf = weakSelf {
+				weakSelf.backgroundView.alpha = backgroundAlpha
+			}
+		}
+	}
 
 	// MARK: - Initialization
 	public init(title: String, dataArray: Array<String>?, completion selectHandler: SelectHandler?) {
@@ -139,7 +149,7 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 		self.backgroundView = UIView(frame: self.view.bounds)
 		self.backgroundView.addGestureRecognizer(self.tapOutsideTouchGestureRecognizer)
 		self.backgroundView.backgroundColor = UIColor.black
-		self.backgroundView.alpha = YYBottomSheet.BackgroundAlpha
+		self.backgroundView.alpha = self.backgroundAlpha
 		self.view.addSubview(self.backgroundView)
 
 		// Setup ContentView
@@ -287,7 +297,7 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 	}
 
 	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return YYBottomSheet.TableRowHeight
+		return self.tableRowHeight
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

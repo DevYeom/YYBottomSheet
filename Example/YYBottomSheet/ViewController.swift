@@ -29,7 +29,10 @@ class ViewController: UIViewController {
 		}
 
 		/* Customizable Variables
-		bottomSheet.allowTouchOutsideToDismiss = false
+		bottomSheet.allowTouchOutsideToDismiss = false // default: true
+		bottomSheet.tableViewHeight = 100 // default: 250
+		bottomSheet.tableRowHeight = 30 // default: 45
+		bottomSheet.backgroundAlpha = 0.3 // default: 0.5
 		bottomSheet.headerViewTitleLabelTextColor = UIColor.red
 		bottomSheet.headerViewBackgroundColor = UIColor.yellow
 		bottomSheet.tableViewCellLabelTextColor = UIColor.blue
