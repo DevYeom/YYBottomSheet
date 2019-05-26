@@ -35,11 +35,11 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 	fileprivate var headerViewCloseButton: UIButton!
 	fileprivate var tableView: UITableView!
 
+	fileprivate var headerViewWidth: CGFloat = YYBottomSheet.HeaderViewWidth
+	fileprivate var headerViewHeight: CGFloat = YYBottomSheet.HeaderViewHeight
 	public var selectHandler: SelectHandler?
 	public var tableViewWidth: CGFloat = YYBottomSheet.TableViewWidth
 	public var tableViewHeight: CGFloat = YYBottomSheet.TableViewHeight
-	public var headerViewHeight: CGFloat = YYBottomSheet.HeaderViewHeight
-	public var headerViewWidth: CGFloat = YYBottomSheet.HeaderViewWidth
 	public var tableRowHeight: CGFloat = YYBottomSheet.TableRowHeight
 	public var tableViewCellLabelTextColor: UIColor = YYBottomSheet.TableViewCellLabelTextColor
 	public var headerViewTitle: String = ""
@@ -63,6 +63,15 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 		}
 	}
 
+	public var backgroundAlpha: CGFloat = YYBottomSheet.BackgroundAlpha {
+		didSet {
+			weak var weakSelf = self
+			if let weakSelf = weakSelf {
+				weakSelf.backgroundView.alpha = backgroundAlpha
+			}
+		}
+	}
+
 	public var headerViewBackgroundColor: UIColor = YYBottomSheet.HeaderViewBackgroundColor {
 		didSet {
 			weak var weakSelf = self
@@ -81,11 +90,11 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 		}
 	}
 
-	public var backgroundAlpha: CGFloat = YYBottomSheet.BackgroundAlpha {
+	public var tableViewSeperatorStyle: UITableViewCell.SeparatorStyle = .singleLine {
 		didSet {
 			weak var weakSelf = self
 			if let weakSelf = weakSelf {
-				weakSelf.backgroundView.alpha = backgroundAlpha
+				weakSelf.tableView.separatorStyle = tableViewSeperatorStyle
 			}
 		}
 	}
@@ -175,6 +184,7 @@ public class YYBottomSheet: UIViewController, UITableViewDelegate, UITableViewDa
 		// Setup TableView
 		self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.tableViewWidth, height: self.tableViewHeight), style: .plain)
 		self.tableView.backgroundColor = YYBottomSheet.TableViewBackgroundColor
+		self.tableView.separatorStyle = self.tableViewSeperatorStyle
 		self.tableView.register(YYBottomSheetCell.self, forCellReuseIdentifier: YYBottomSheetCell.identifierForTableViewCell)
 		self.tableView.tableFooterView = UIView() // hide seperator lines where you don't have a data
 		self.tableView.delegate = self
