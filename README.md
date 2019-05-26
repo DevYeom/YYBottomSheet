@@ -13,7 +13,7 @@ When you need to let user choose one of several, you can use YYBottomSheet. Simp
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![](demo.gif)
+![](https://raw.githubusercontent.com/DevYeom/YYBottomSheet/master/demo.gif)
 
 ## Usage
 
@@ -43,9 +43,15 @@ You can customize several things as below:
 
 ```swift
 public var allowTouchOutsideToDismiss: Bool
+public var backgroundAlpha: CGFloat
+
+public var tableViewHeight: CGFloat
+public var tableRowHeight: CGFloat
+public var tableViewCellLabelTextColor: UIColor
+public var tableViewSeperatorStyle: UITableViewCell.SeparatorStyle
+
 public var headerViewBackgroundColor: UIColor
 public var headerViewTitleLabelTextColor: UIColor
-public var tableViewCellLabelTextColor: UIColor
 ```
 
 Check full example as below:
@@ -61,12 +67,15 @@ let bottomSheet = YYBottomSheet.init(title: title, dataArray: dataArray) { (cell
 
 /* Customizable Variables
 bottomSheet.allowTouchOutsideToDismiss = false // default: true
+bottomSheet.backgroundAlpha = 0.3 // default: 0.5
+
 bottomSheet.tableViewHeight = 100 // default: 250
 bottomSheet.tableRowHeight = 30 // default: 45
-bottomSheet.backgroundAlpha = 0.3 // default: 0.5
-bottomSheet.headerViewTitleLabelTextColor = UIColor.red
-bottomSheet.headerViewBackgroundColor = UIColor.yellow
 bottomSheet.tableViewCellLabelTextColor = UIColor.blue
+bottomSheet.tableViewSeperatorStyle = .none
+
+bottomSheet.headerViewBackgroundColor = UIColor.yellow
+bottomSheet.headerViewTitleLabelTextColor = UIColor.red
 */
 
 bottomSheet.show()
