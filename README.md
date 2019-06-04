@@ -7,7 +7,7 @@
 
 ## Introduction
 
-When you need to let user choose one of several, you can use YYBottomSheet. Simple And Clear 😎
+When you need to let users choose one of several or know informations by showing bottomSheet, you can use YYBottomSheet. Simple And Clear 😎
 
 ## Example
 

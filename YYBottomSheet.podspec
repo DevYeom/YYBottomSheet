@@ -8,12 +8,12 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'YYBottomSheet'
-	s.version          = '1.0.2'
+	s.version          = '1.1.0'
 	s.swift_version    = '5.0'
 	s.summary          = 'Very Simple and Useful Bottom Sheet'
 
 	s.description      = <<-DESC
-	When you need to let user choose one of several, you can use YYBottomSheet.
+	When you need to let users choose one of several or know informations by showing bottomSheet, you can use YYBottomSheet.
 	Simple And Clear 😎
 	DESC
 
