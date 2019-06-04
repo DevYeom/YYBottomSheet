@@ -13,7 +13,7 @@ When you need to let users choose one of several or know informations by showing
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![](https://raw.githubusercontent.com/DevYeom/YYBottomSheet/master/demo.gif)
+![](https://raw.githubusercontent.com/DevYeom/YYBottomSheet/master/demo_v1.1.0.gif)
 
 ## Usage
 
