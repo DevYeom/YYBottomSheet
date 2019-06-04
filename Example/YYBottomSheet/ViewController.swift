@@ -43,5 +43,34 @@ class ViewController: UIViewController {
 
 		bottomSheet.show()
 	}
+
+	@IBAction func showSimpleToast(_ sender: UIButton) {
+		let id = sender.restorationIdentifier
+
+		if id == "oneLine" {
+			let message = "Hello World!"
+			let simpleToast = YYBottomSheet.init(simpleToastMessage: message, options: nil)
+
+			simpleToast.show()
+		} else if id == "multipleLines" {
+			let message = "Message is multiple lines\nit doesn't matter!"
+			let simpleToast = YYBottomSheet.init(simpleToastMessage: message, options: nil)
+
+			simpleToast.show()
+		} else if id == "customized" {
+			let options: [YYBottomSheet.SimpleToastOptions:Any] = [
+				.showDuration: Double(2.0),
+				.backgroundColor: UIColor.black,
+				.beginningAlpha: CGFloat(0.8),
+				.messageFont: UIFont.italicSystemFont(ofSize: 15),
+				.messageColor: UIColor.white
+			]
+
+			let message = "SimpleToast can be customized!"
+			let simpleToast = YYBottomSheet.init(simpleToastMessage: message, options: options)
+
+			simpleToast.show()
+		}
+	}
 }
 

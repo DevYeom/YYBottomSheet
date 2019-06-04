@@ -17,6 +17,8 @@
 		A6A27ADD22918550001E4D02 /* YYBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A27AD522918550001E4D02 /* YYBottomSheet.swift */; };
 		A6C8AE3122A683C000B1A09C /* BottomUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8AE3022A683C000B1A09C /* BottomUpTable.swift */; };
 		A6C8AE3222A683C000B1A09C /* BottomUpTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8AE3022A683C000B1A09C /* BottomUpTable.swift */; };
+		A6C8AE3422A6940200B1A09C /* SimpleToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8AE3322A6940200B1A09C /* SimpleToast.swift */; };
+		A6C8AE3522A6940200B1A09C /* SimpleToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C8AE3322A6940200B1A09C /* SimpleToast.swift */; };
 		A6EA374522918D7B0029A9CD /* YYBottomSheet.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A20CF301712E73DFF2B0E3A7815BBAD3 /* YYBottomSheet.podspec */; };
 		A6EA374622918D7B0029A9CD /* YYBottomSheet.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A20CF301712E73DFF2B0E3A7815BBAD3 /* YYBottomSheet.podspec */; };
 		A6EA37552291910C0029A9CD /* close_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6EA37522291910C0029A9CD /* close_button@3x.png */; };
@@ -70,6 +72,7 @@
 		A6A27AD222918550001E4D02 /* BottomUpTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomUpTableCell.swift; sourceTree = "<group>"; };
 		A6A27AD522918550001E4D02 /* YYBottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYBottomSheet.swift; sourceTree = "<group>"; };
 		A6C8AE3022A683C000B1A09C /* BottomUpTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomUpTable.swift; sourceTree = "<group>"; };
+		A6C8AE3322A6940200B1A09C /* SimpleToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToast.swift; sourceTree = "<group>"; };
 		A6EA37522291910C0029A9CD /* close_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@3x.png"; sourceTree = "<group>"; };
 		A6EA37532291910C0029A9CD /* close_button@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@1x.png"; sourceTree = "<group>"; };
 		A6EA37542291910C0029A9CD /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 				A6A27AD522918550001E4D02 /* YYBottomSheet.swift */,
 				A6A27AD222918550001E4D02 /* BottomUpTableCell.swift */,
 				A6C8AE3022A683C000B1A09C /* BottomUpTable.swift */,
+				A6C8AE3322A6940200B1A09C /* SimpleToast.swift */,
 			);
 			name = Classes;
 			path = YYBottomSheet/Classes;
@@ -425,6 +429,7 @@
 				A6C8AE3222A683C000B1A09C /* BottomUpTable.swift in Sources */,
 				A6A27AD722918550001E4D02 /* BottomUpTableCell.swift in Sources */,
 				A6A27ADD22918550001E4D02 /* YYBottomSheet.swift in Sources */,
+				A6C8AE3522A6940200B1A09C /* SimpleToast.swift in Sources */,
 				CCBC4B6227D6243B779B04C1115512E8 /* YYBottomSheet-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +441,7 @@
 				A6C8AE3122A683C000B1A09C /* BottomUpTable.swift in Sources */,
 				A6A27AD622918550001E4D02 /* BottomUpTableCell.swift in Sources */,
 				5C3CDAECBEECA3A0A8C96C29CDE57619 /* Pods-YYBottomSheet_Example-dummy.m in Sources */,
+				A6C8AE3422A6940200B1A09C /* SimpleToast.swift in Sources */,
 				A6A27ADC22918550001E4D02 /* YYBottomSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

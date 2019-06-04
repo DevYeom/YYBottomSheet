@@ -22,25 +22,52 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8i-B3-GhA">
-                                <rect key="frame" x="121.5" y="120" width="132" height="30"/>
-                                <state key="normal" title="Show BottomSheet"/>
+                                <rect key="frame" x="114.5" y="120" width="146" height="30"/>
+                                <state key="normal" title="Show bottomUpTable"/>
                                 <connections>
                                     <action selector="showBottomSheet:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cze-0B-2da"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ8-T7-8YW">
-                                <rect key="frame" x="163" y="180" width="49" height="21"/>
+                                <rect key="frame" x="163" y="79" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="oneLine" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8P-gR-KXf">
+                                <rect key="frame" x="101.5" y="170" width="172" height="30"/>
+                                <state key="normal" title="Show simpleToast (1 line)"/>
+                                <connections>
+                                    <action selector="showSimpleToast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Z3D-HO-xuF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="multipleLines" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-Lm-eWP">
+                                <rect key="frame" x="74" y="220" width="227" height="30"/>
+                                <state key="normal" title="Show simpleToast (multiple lines)"/>
+                                <connections>
+                                    <action selector="showSimpleToast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zQN-61-ZiX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="customized" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdS-gF-Pwa">
+                                <rect key="frame" x="79" y="270" width="217" height="30"/>
+                                <state key="normal" title="Show simpleToast (customized)"/>
+                                <connections>
+                                    <action selector="showSimpleToast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RPl-7A-af9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gxz-Lm-eWP" firstAttribute="top" secondItem="h8P-gR-KXf" secondAttribute="bottom" constant="20" id="08U-W1-nuj"/>
                             <constraint firstItem="VQ8-T7-8YW" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="5pE-3s-SMA"/>
-                            <constraint firstItem="VQ8-T7-8YW" firstAttribute="top" secondItem="B8i-B3-GhA" secondAttribute="bottom" constant="30" id="6WM-N0-WhG"/>
+                            <constraint firstItem="gxz-Lm-eWP" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="G0v-c9-VhB"/>
                             <constraint firstItem="B8i-B3-GhA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="Li3-ll-Io4"/>
+                            <constraint firstItem="h8P-gR-KXf" firstAttribute="top" secondItem="B8i-B3-GhA" secondAttribute="bottom" constant="20" id="MIb-jm-BAM"/>
+                            <constraint firstItem="AdS-gF-Pwa" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ZSM-aC-2cN"/>
                             <constraint firstItem="B8i-B3-GhA" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Zrq-Pf-RYd"/>
+                            <constraint firstItem="AdS-gF-Pwa" firstAttribute="top" secondItem="gxz-Lm-eWP" secondAttribute="bottom" constant="20" id="fMg-6p-C3K"/>
+                            <constraint firstItem="B8i-B3-GhA" firstAttribute="top" secondItem="VQ8-T7-8YW" secondAttribute="bottom" constant="20" id="pht-fe-sVW"/>
+                            <constraint firstItem="h8P-gR-KXf" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="sgh-4M-RI7"/>
                         </constraints>
                     </view>
                     <connections>
