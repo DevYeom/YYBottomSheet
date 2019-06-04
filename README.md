@@ -23,12 +23,12 @@ To create and show a bottomSheet, first of all, import the module at the beginni
 import YYBottomSheet
 ```
 
-Then just show the bottomSheet as below:
+First of all, you can show the bottomUpTable as below:
 
 ```swift
-let bottomSheet = YYBottomSheet(title: "Fruits", dataArray: ["apple", "grape", "strawberry"]) { (cell) in
-    // whatever you want to code
-    // print("\(cell.indexPath.row) : \(cell.titleLabel.text)")
+let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: nil) { (cell) in
+// whatever you want to code
+// print("\(cell.indexPath.row) : \(cell.titleLabel.text)")
 }
 bottomSheet.show()
 ```
@@ -39,46 +39,77 @@ And button handler (SelectHandler) is just a lambda:
 (YYBottomSheetCell) -> ()
 ```
 
-You can customize several things as below:
+Second, you can show the simpleToast as below:
 
 ```swift
-public var allowTouchOutsideToDismiss: Bool
-public var backgroundAlpha: CGFloat
+let message = "Hello World!"
+let simpleToast = YYBottomSheet.init(simpleToastMessage: message, options: nil)
 
-public var tableViewHeight: CGFloat
-public var tableRowHeight: CGFloat
-public var tableViewCellLabelTextColor: UIColor
-public var tableViewSeperatorStyle: UITableViewCell.SeparatorStyle
+simpleToast.show()
+```
 
-public var headerViewBackgroundColor: UIColor
-public var headerViewTitleLabelTextColor: UIColor
+You can customize several things by setting options as below:
+
+```swift
+// BottomUpTableOptions
+let options: [YYBottomSheet.BottomUpTableOptions:Any] = [
+.allowTouchOutsideToDismiss: false,
+.backgroundAlpha: CGFloat(0.3),
+.tableViewHeight: CGFloat(100),
+.tableRowHeight: CGFloat(30),
+.tableViewCellLabelTextColor: UIColor.blue,
+.tableViewSeperatorStyle: UITableViewCell.SeparatorStyle.none,
+.headerViewBackgroundColor: UIColor.yellow,
+.headerViewTitleLabelTextColor: UIColor.red
+]
+
+// SimpleToastOptions
+let options: [YYBottomSheet.SimpleToastOptions:Any] = [
+.showDuration: Double(2.0),
+.backgroundColor: UIColor.black,
+.beginningAlpha: CGFloat(0.8),
+.messageFont: UIFont.italicSystemFont(ofSize: 15),
+.messageColor: UIColor.white
+]
 ```
 
 Check full example as below:
 
 ```swift
+/**
+* BottomUpTable
+*/
 let title = "Fruits"
 let dataArray = ["apple", "grape", "watermelon", "banana", "strawberry", "cherry", "pineapple", "pear"]
+let options: [YYBottomSheet.BottomUpTableOptions:Any] = [
+.allowTouchOutsideToDismiss: true,
+.backgroundAlpha: CGFloat(0.5),
+.tableViewHeight: CGFloat(250),
+.tableRowHeight: CGFloat(45),
+.tableViewSeperatorStyle: UITableViewCell.SeparatorStyle.none
+]
 
-let bottomSheet = YYBottomSheet.init(title: title, dataArray: dataArray) { (cell) in
-    // whatever you want to code
-    // print("\(cell.indexPath.row) : \(cell.titleLabel.text)")
+let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: options) { (cell) in
+self.selectedFruitLabel.text = cell.titleLabel.text
 }
 
-/* Customizable Variables
-bottomSheet.allowTouchOutsideToDismiss = false // default: true
-bottomSheet.backgroundAlpha = 0.3 // default: 0.5
+bottomUpTable.show()
 
-bottomSheet.tableViewHeight = 100 // default: 250
-bottomSheet.tableRowHeight = 30 // default: 45
-bottomSheet.tableViewCellLabelTextColor = UIColor.blue
-bottomSheet.tableViewSeperatorStyle = .none
-
-bottomSheet.headerViewBackgroundColor = UIColor.yellow
-bottomSheet.headerViewTitleLabelTextColor = UIColor.red
+/**
+* SimpleToast
 */
+let options: [YYBottomSheet.SimpleToastOptions:Any] = [
+.showDuration: Double(2.0),
+.backgroundColor: UIColor.black,
+.beginningAlpha: CGFloat(0.8),
+.messageFont: UIFont.italicSystemFont(ofSize: 15),
+.messageColor: UIColor.white
+]
 
-bottomSheet.show()
+let message = "SimpleToast can be customized!"
+let simpleToast = YYBottomSheet.init(simpleToastMessage: message, options: options)
+
+simpleToast.show()
 ```
 
 ## Installation
