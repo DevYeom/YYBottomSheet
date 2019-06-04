@@ -24,22 +24,22 @@ class ViewController: UIViewController {
 		let title = "Fruits"
 		let dataArray = ["apple", "grape", "watermelon", "banana", "strawberry", "cherry", "pineapple", "pear"]
 
-		let bottomSheet = YYBottomSheet.init(title: title, dataArray: dataArray) { (cell) in
+		/* Customizable Variables
+		let options: [YYBottomSheet.BottomUpTableOptions:Any] = [
+			.allowTouchOutsideToDismiss: false,
+			.backgroundAlpha: CGFloat(0.3),
+			.tableViewHeight: CGFloat(100),
+			.tableRowHeight: CGFloat(30),
+			.tableViewCellLabelTextColor: UIColor.blue,
+			.tableViewSeperatorStyle: UITableViewCell.SeparatorStyle.none,
+			.headerViewBackgroundColor: UIColor.yellow,
+			.headerViewTitleLabelTextColor: UIColor.red
+		]
+		*/
+
+		let bottomSheet = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: nil) { (cell) in
 			self.selectedFruitLabel.text = cell.titleLabel.text
 		}
-
-		/* Customizable Variables
-		bottomSheet.allowTouchOutsideToDismiss = false // default: true
-		bottomSheet.backgroundAlpha = 0.3 // default: 0.5
-
-		bottomSheet.tableViewHeight = 100 // default: 250
-		bottomSheet.tableRowHeight = 30 // default: 45
-		bottomSheet.tableViewCellLabelTextColor = UIColor.blue
-		bottomSheet.tableViewSeperatorStyle = .none
-
-		bottomSheet.headerViewBackgroundColor = UIColor.yellow
-		bottomSheet.headerViewTitleLabelTextColor = UIColor.red
-		*/
 
 		bottomSheet.show()
 	}

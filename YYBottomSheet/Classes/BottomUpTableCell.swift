@@ -1,5 +1,5 @@
 //
-//  YYBottomSheetCell.swift
+//  BottomTableViewCell.swift
 //  Pods
 //
 //  Created by DevYeom on 19/05/2019.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-@available(iOS 9.0, *)
-public class YYBottomSheetCell: UITableViewCell {
+@available(iOS 10.0, *)
+public class BottomUpTableCell: UITableViewCell {
 	// MARK: - Global Static Constants
-	static let identifierForTableViewCell: String = "YYBottomSheetCell"
+	static let identifierForTableViewCell: String = "BottomUpTableCell"
 
 	// MARK: - Global Variables
 	public var titleLabel: UILabel = UILabel.init()
