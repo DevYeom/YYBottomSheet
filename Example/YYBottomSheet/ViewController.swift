@@ -20,7 +20,7 @@ class ViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 	}
 
-	@IBAction func showBottomSheet(_ sender: UIButton) {
+	@IBAction func showBottomUpTable(_ sender: UIButton) {
 		let title = "Fruits"
 		let dataArray = ["apple", "grape", "watermelon", "banana", "strawberry", "cherry", "pineapple", "pear"]
 
@@ -37,11 +37,11 @@ class ViewController: UIViewController {
 		]
 		*/
 
-		let bottomSheet = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: nil) { (cell) in
+		let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: nil) { (cell) in
 			self.selectedFruitLabel.text = cell.titleLabel.text
 		}
 
-		bottomSheet.show()
+		bottomUpTable.show()
 	}
 
 	@IBAction func showSimpleToast(_ sender: UIButton) {
