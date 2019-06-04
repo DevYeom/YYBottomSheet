@@ -1,5 +1,5 @@
 //
-//  BottomTableViewCell.swift
+//  BottomUpTableCell.swift
 //  Pods
 //
 //  Created by DevYeom on 19/05/2019.
