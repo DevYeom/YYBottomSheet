@@ -26,9 +26,9 @@ import YYBottomSheet
 First of all, you can show the bottomUpTable as below:
 
 ```swift
-let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: nil) { (cell) in
-// whatever you want to code
-// print("\(cell.indexPath.row) : \(cell.titleLabel.text)")
+let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: nil) { cell in
+    // whatever you want to code
+    // print("\(cell.indexPath.row) : \(cell.titleLabel.text)")
 }
 bottomSheet.show()
 ```
@@ -50,28 +50,28 @@ simpleToast.show()
 
 You can customize several things by setting options as below:
 
-```swift
-// BottomUpTableOptions
-let options: [YYBottomSheet.BottomUpTableOptions:Any] = [
-.allowTouchOutsideToDismiss: false,
-.backgroundAlpha: CGFloat(0.3),
-.tableViewHeight: CGFloat(100),
-.tableRowHeight: CGFloat(30),
-.tableViewCellLabelTextColor: UIColor.blue,
-.tableViewSeperatorStyle: UITableViewCell.SeparatorStyle.none,
-.headerViewBackgroundColor: UIColor.yellow,
-.headerViewTitleLabelTextColor: UIColor.red
-]
+### BottomUpTableOptions
 
-// SimpleToastOptions
-let options: [YYBottomSheet.SimpleToastOptions:Any] = [
-.showDuration: Double(2.0),
-.backgroundColor: UIColor.black,
-.beginningAlpha: CGFloat(0.8),
-.messageFont: UIFont.italicSystemFont(ofSize: 15),
-.messageColor: UIColor.white
-]
-```
+| option | example |
+|---|---|
+| allowTouchOutsideToDismiss | false |
+| backgroundAlpha |  0.3 |
+| tableViewHeight | 200 |
+| tableRowHeight | 50 |
+| tableViewCellLabelTextColor | UIColor.blue |
+| tableViewSeperatorStyle | UITableViewCell.SeparatorStyle.none |
+| headerViewBackgroundColor | UIColor.yellow |
+| headerViewTitleLabelTextColor | UIColor.red |
+
+### SimpleToastOptions
+
+| option | example |
+|---|---|
+| showDuration | 2.0 |
+| backgroundColor |  UIColor.black |
+| beginningAlpha | 0.8 |
+| messageFont | UIFont.italicSystemFont(ofSize: 15) |
+| messageColor | UIColor.white |
 
 Check full example as below:
 
@@ -82,15 +82,15 @@ Check full example as below:
 let title = "Fruits"
 let dataArray = ["apple", "grape", "watermelon", "banana", "strawberry", "cherry", "pineapple", "pear"]
 let options: [YYBottomSheet.BottomUpTableOptions:Any] = [
-.allowTouchOutsideToDismiss: true,
-.backgroundAlpha: CGFloat(0.5),
-.tableViewHeight: CGFloat(250),
-.tableRowHeight: CGFloat(45),
-.tableViewSeperatorStyle: UITableViewCell.SeparatorStyle.none
+    .allowTouchOutsideToDismiss: true,
+    .backgroundAlpha: 0.5,
+    .tableViewHeight: 200,
+    .tableRowHeight: 50,
+    .tableViewSeperatorStyle: UITableViewCell.SeparatorStyle.none
 ]
 
-let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: options) { (cell) in
-self.selectedFruitLabel.text = cell.titleLabel.text
+let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dataArray, options: options) { cell in
+    self.selectedFruitLabel.text = cell.titleLabel.text
 }
 
 bottomUpTable.show()
@@ -99,11 +99,11 @@ bottomUpTable.show()
 * SimpleToast
 */
 let options: [YYBottomSheet.SimpleToastOptions:Any] = [
-.showDuration: Double(2.0),
-.backgroundColor: UIColor.black,
-.beginningAlpha: CGFloat(0.8),
-.messageFont: UIFont.italicSystemFont(ofSize: 15),
-.messageColor: UIColor.white
+    .showDuration: 2.0,
+    .backgroundColor: UIColor.black,
+    .beginningAlpha: 0.8,
+    .messageFont: UIFont.italicSystemFont(ofSize: 15),
+    .messageColor: UIColor.white
 ]
 
 let message = "SimpleToast can be customized!"
