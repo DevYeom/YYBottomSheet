@@ -101,7 +101,7 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     // MARK: - Initialization
-    init(title: String, dataArray: Array<String>?, completion selectHandler: SelectHandler?) {
+    init(title: String, dataArray: Array<String>?, completion selectHandler: @escaping SelectHandler) {
         super.init(nibName: nil, bundle: nil)
 
         self.headerViewTitle = title

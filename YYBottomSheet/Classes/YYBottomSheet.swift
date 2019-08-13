@@ -41,7 +41,7 @@ import UIKit
     public var simpleToast: SimpleToast!
 
     // MARK: - Initializations
-    public init(bottomUpTableTitle title: String, dataArray: Array<String>?, options: Dictionary<YYBottomSheet.BottomUpTableOptions, Any>?, completion selectHandler: BottomUpTable.SelectHandler?) {
+    public init(bottomUpTableTitle title: String, dataArray: Array<String>?, options: Dictionary<YYBottomSheet.BottomUpTableOptions, Any>?, completion selectHandler: @escaping BottomUpTable.SelectHandler) {
         self.componentType = .bottomUpTable
         self.bottomUpTable = BottomUpTable.init(title: title, dataArray: dataArray, completion: selectHandler)
 
