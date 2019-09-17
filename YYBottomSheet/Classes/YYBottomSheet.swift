@@ -37,53 +37,60 @@ import UIKit
 
     // MARK: - Component Varialbes
     public var componentType: Components
-    public var bottomUpTable: BottomUpTable!
-    public var simpleToast: SimpleToast!
+    public var bottomUpTable: BottomUpTable?
+    public var simpleToast: SimpleToast?
 
     // MARK: - Initializations
     public init(bottomUpTableTitle title: String, dataArray: Array<String>?, options: Dictionary<YYBottomSheet.BottomUpTableOptions, Any>?, completion selectHandler: @escaping BottomUpTable.SelectHandler) {
         self.componentType = .bottomUpTable
         self.bottomUpTable = BottomUpTable.init(title: title, dataArray: dataArray, completion: selectHandler)
 
+        guard let bottomUpTable = self.bottomUpTable else {
+            #if DEBUG
+            print("YYBottomSheet Error ::: It can't initialize bottomUpTable. Because keyWindow is nil.")
+            #endif
+            return
+        }
+
         options?.forEach({ option in
             switch option.key {
             case .allowTouchOutsideToDismiss:
                 if let value = option.value as? Bool {
-                    self.bottomUpTable.allowTouchOutsideToDismiss = value
+                    bottomUpTable.allowTouchOutsideToDismiss = value
                 }
             case .backgroundAlpha:
                 if let value = option.value as? Double {
-                    self.bottomUpTable.backgroundAlpha = CGFloat(value)
+                    bottomUpTable.backgroundAlpha = CGFloat(value)
                 } else if let value = option.value as? Int {
-                    self.bottomUpTable.backgroundAlpha = CGFloat(value)
+                    bottomUpTable.backgroundAlpha = CGFloat(value)
                 }
             case .tableViewHeight:
                 if let value = option.value as? Int {
-                    self.bottomUpTable.tableViewHeight = CGFloat(value)
+                    bottomUpTable.tableViewHeight = CGFloat(value)
                 } else if let value = option.value as? Double {
-                    self.bottomUpTable.tableViewHeight = CGFloat(value)
+                    bottomUpTable.tableViewHeight = CGFloat(value)
                 }
             case .tableRowHeight:
                 if let value = option.value as? Int {
-                    self.bottomUpTable.tableRowHeight = CGFloat(value)
+                    bottomUpTable.tableRowHeight = CGFloat(value)
                 } else if let value = option.value as? Double {
-                    self.bottomUpTable.tableRowHeight = CGFloat(value)
+                    bottomUpTable.tableRowHeight = CGFloat(value)
                 }
             case .tableViewCellLabelTextColor:
                 if let value = option.value as? UIColor {
-                    self.bottomUpTable.tableViewCellLabelTextColor = value
+                    bottomUpTable.tableViewCellLabelTextColor = value
                 }
             case .tableViewSeperatorStyle:
                 if let value = option.value as? UITableViewCell.SeparatorStyle {
-                    self.bottomUpTable.tableViewSeperatorStyle = value
+                    bottomUpTable.tableViewSeperatorStyle = value
                 }
             case .headerViewBackgroundColor:
                 if let value = option.value as? UIColor {
-                    self.bottomUpTable.headerViewBackgroundColor = value
+                    bottomUpTable.headerViewBackgroundColor = value
                 }
             case .headerViewTitleLabelTextColor:
                 if let value = option.value as? UIColor {
-                    self.bottomUpTable.headerViewTitleLabelTextColor = value
+                    bottomUpTable.headerViewTitleLabelTextColor = value
                 }
             }
         })
@@ -93,31 +100,38 @@ import UIKit
         self.componentType = .simpleToast
         self.simpleToast = SimpleToast.init(message: message)
 
+        guard let simpleToast = self.simpleToast else {
+            #if DEBUG
+            print("YYBottomSheet Error ::: It can't initialize simpleToast. Because keyWindow is nil.")
+            #endif
+            return
+        }
+
         options?.forEach({ option in
             switch option.key {
             case .showDuration:
                 if let value = option.value as? Double {
-                    self.simpleToast.showDuration = value
+                    simpleToast.showDuration = value
                 } else if let value = option.value as? Int {
-                    self.simpleToast.showDuration = Double(value)
+                    simpleToast.showDuration = Double(value)
                 }
             case .backgroundColor:
                 if let value = option.value as? UIColor {
-                    self.simpleToast.backColor = value
+                    simpleToast.backColor = value
                 }
             case .beginningAlpha:
                 if let value = option.value as? Double {
-                    self.simpleToast.beginningAlpha = CGFloat(value)
+                    simpleToast.beginningAlpha = CGFloat(value)
                 } else if let value = option.value as? Int {
-                    self.simpleToast.beginningAlpha = CGFloat(value)
+                    simpleToast.beginningAlpha = CGFloat(value)
                 }
             case .messageFont:
                 if let value = option.value as? UIFont {
-                    self.simpleToast.messageFont = value
+                    simpleToast.messageFont = value
                 }
             case .messageColor:
                 if let value = option.value as? UIColor {
-                    self.simpleToast.messageColor = value
+                    simpleToast.messageColor = value
                 }
             }
         })
@@ -127,9 +141,9 @@ import UIKit
     public func show() {
         switch self.componentType {
         case .bottomUpTable:
-            self.bottomUpTable.show()
+            self.bottomUpTable?.show()
         case .simpleToast:
-            self.simpleToast.show()
+            self.simpleToast?.show()
         }
     }
 }

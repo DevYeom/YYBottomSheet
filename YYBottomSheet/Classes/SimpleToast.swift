@@ -24,11 +24,12 @@ public class SimpleToast: UIView {
     public var message: String = ""
 
     // MARK: - Initialization
-    init(message: String) {
+    init?(message: String) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
+        // check keyWindow's state
         if self.viewNotReady() {
-            return
+            return nil
         }
 
         self.message = message
