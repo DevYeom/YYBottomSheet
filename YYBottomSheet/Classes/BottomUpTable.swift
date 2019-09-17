@@ -101,10 +101,16 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     // MARK: - Initialization
-    init(title: String, dataArray: Array<String>?, completion selectHandler: @escaping SelectHandler) {
+    init?(title: String, dataArray: Array<String>?, completion selectHandler: @escaping SelectHandler) {
         super.init(nibName: nil, bundle: nil)
 
+        // check keyWindow's state
+        if viewNotReady() {
+            return nil
+        }
+
         self.headerViewTitle = title
+        self.selectHandler = selectHandler
 
         if let dataArray = dataArray {
             self.dataArray = dataArray
@@ -112,7 +118,6 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
             self.dataArray = []
         }
 
-        self.selectHandler = selectHandler
         self.setupViews()
         self.setupWindow()
         self.setupAutoLayout()
@@ -132,10 +137,6 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func setupWindow() {
-        if viewNotReady() {
-            return
-        }
-
         let window = UIWindow(frame: (UIApplication.shared.keyWindow?.bounds)!)
         self.contentViewWindow = window
         self.contentViewWindow.backgroundColor = UIColor.clear
@@ -144,10 +145,6 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func setupViews() {
-        if viewNotReady() {
-            return
-        }
-
         self.view = UIView(frame: (UIApplication.shared.keyWindow?.bounds)!)
 
         // Setup Gesture
