@@ -12,7 +12,7 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
 
     public typealias SelectHandler = (BottomUpTableCell) -> ()
 
-    // MARK: - Global Static Constants
+    // MARK: - Static Constants
     fileprivate static let HeaderViewWidth: CGFloat = UIScreen.main.bounds.size.width
     fileprivate static let HeaderViewHeight: CGFloat = 45
     fileprivate static let TableViewWidth: CGFloat = UIScreen.main.bounds.size.width
@@ -26,7 +26,7 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     fileprivate static let HideDuration: Double = 0.3
     fileprivate static let BackgroundAlpha: CGFloat = 0.5
 
-    // MARK: - Global Variables
+    // MARK: - Variables
     fileprivate var previousWindow: UIWindow!
     fileprivate var contentViewWindow: UIWindow!
     fileprivate var backgroundView: UIView!
@@ -226,9 +226,9 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
 
         // HeaderViewCloseButton
         self.headerViewCloseButton.centerYAnchor.constraint(equalTo: self.headerView.centerYAnchor).isActive = true
-        self.headerViewCloseButton.trailingAnchor.constraint(equalTo: self.headerView.trailingAnchor, constant: -16).isActive = true
-        self.headerViewCloseButton.heightAnchor.constraint(equalToConstant: 32)
-        self.headerViewCloseButton.widthAnchor.constraint(equalTo: self.headerViewCloseButton.heightAnchor)
+        self.headerViewCloseButton.trailingAnchor.constraint(equalTo: self.headerView.trailingAnchor, constant: -8).isActive = true
+        self.headerViewCloseButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        self.headerViewCloseButton.widthAnchor.constraint(equalTo: self.headerViewCloseButton.heightAnchor).isActive = true
 
         // TableView
         self.tableView.topAnchor.constraint(equalTo: self.headerView.bottomAnchor).isActive = true

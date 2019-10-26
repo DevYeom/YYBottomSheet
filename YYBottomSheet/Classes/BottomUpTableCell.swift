@@ -10,10 +10,10 @@ import UIKit
 @available(iOS 10.0, *)
 public class BottomUpTableCell: UITableViewCell {
 
-    // MARK: - Global Static Constants
+    // MARK: - Static Constants
     static let identifierForTableViewCell: String = "BottomUpTableCell"
 
-    // MARK: - Global Variables
+    // MARK: - Variables
     public var titleLabel: UILabel = UILabel.init()
     public var indexPath: IndexPath = IndexPath.init(row: 0, section: 0)
 
