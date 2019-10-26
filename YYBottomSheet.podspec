@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YYBottomSheet'
-  s.version          = '1.2.0'
+  s.version          = '1.2.1'
   s.swift_version    = '5.0'
   s.summary          = 'Very Simple and Useful Bottom Sheet'
 

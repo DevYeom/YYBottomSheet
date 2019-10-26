@@ -10,14 +10,14 @@ import UIKit
 @available(iOS 10.0, *)
 public class SimpleToast: UIView {
 
-    // MARK: - Global Static Constants
+    // MARK: - Static Constants
     fileprivate static let ShowDuration: Double = 3.0
     fileprivate static let BackgroundColor: UIColor = UIColor.init(red: 50 / 255.0, green: 65 / 255.0, blue: 117 / 255.0, alpha: 1.0)
     fileprivate static let BeginningAlpha: CGFloat = 1.0
     fileprivate static let MessageFont: UIFont = UIFont.boldSystemFont(ofSize: 15)
     fileprivate static let MessageColor: UIColor = UIColor.white
 
-    // MARK: - Global Variables
+    // MARK: - Variables
     fileprivate var currentView: UIView!
     fileprivate var toastLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     public var showDuration: Double = SimpleToast.ShowDuration
