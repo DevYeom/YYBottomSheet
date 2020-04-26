@@ -7,28 +7,30 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
-public class SimpleToast: UIView {
+@available(iOS 11.0, *)
+open class SimpleToast: UIView {
 
     // MARK: - Static Constants
-    fileprivate static let ShowDuration: Double = 3.0
-    fileprivate static let BackgroundColor: UIColor = UIColor.init(red: 50 / 255.0, green: 65 / 255.0, blue: 117 / 255.0, alpha: 1.0)
-    fileprivate static let BeginningAlpha: CGFloat = 1.0
-    fileprivate static let MessageFont: UIFont = UIFont.boldSystemFont(ofSize: 15)
-    fileprivate static let MessageColor: UIColor = UIColor.white
 
-    // MARK: - Variables
-    fileprivate var currentView: UIView!
-    fileprivate var toastLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    private static let ShowDuration: Double = 3.0
+    private static let BackgroundColor: UIColor = UIColor.init(red: 50 / 255.0, green: 65 / 255.0, blue: 117 / 255.0, alpha: 1.0)
+    private static let BeginningAlpha: CGFloat = 1.0
+    private static let MessageFont: UIFont = UIFont.boldSystemFont(ofSize: 15)
+    private static let MessageColor: UIColor = UIColor.white
+
+    // MARK: - Properties
+
+    private var currentView: UIView!
+    private var toastLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     public var showDuration: Double = SimpleToast.ShowDuration
     public var message: String = ""
 
     // MARK: - Initialization
+
     init?(message: String) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
-        // check keyWindow's state
-        if self.viewNotReady() {
+        if self.windowNotReady() {
             return nil
         }
 
@@ -37,7 +39,7 @@ public class SimpleToast: UIView {
         self.setupAutoLayout()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -79,13 +81,19 @@ public class SimpleToast: UIView {
     }
 
     // MARK: - Setup
-    // cannot use when keywindow is nil
-    func viewNotReady() -> Bool {
-        return UIApplication.shared.keyWindow == nil
+
+    // Cannot use when windows is nil
+    private func windowNotReady() -> Bool {
+        if UIApplication.shared.windows.isEmpty {
+            #if DEBUG
+            print("YYBottomSheet Error ::: It can't initialize SimpleToast. Because the application has no window.")
+            #endif
+        }
+        return UIApplication.shared.windows.isEmpty
     }
 
     func setupView() {
-        self.currentView = UIApplication.shared.keyWindow?.rootViewController?.view
+        self.currentView = UIApplication.topViewController()?.view
 
         // Setup View
         self.backgroundColor = self.backColor
@@ -109,9 +117,10 @@ public class SimpleToast: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.toastLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        self.leadingAnchor.constraint(equalTo: self.currentView.leadingAnchor, constant: 16).isActive = true
-        self.trailingAnchor.constraint(equalTo: self.currentView.trailingAnchor, constant: -16).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.currentView.bottomAnchor, constant: -30).isActive = true
+        let safeArea = self.currentView.safeAreaLayoutGuide
+        self.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16).isActive = true
+        self.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16).isActive = true
+        self.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16).isActive = true
 
         self.toastLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true
         self.toastLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16).isActive = true
@@ -121,7 +130,7 @@ public class SimpleToast: UIView {
 
     // MARK: - SimpleToast Usage
     public func show() {
-        if viewNotReady() {
+        if windowNotReady() {
             return
         }
 
