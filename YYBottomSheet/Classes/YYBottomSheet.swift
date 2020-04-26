@@ -7,7 +7,7 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 @objcMembers public class YYBottomSheet {
 
     // MARK: - Enumerations
@@ -102,7 +102,7 @@ import UIKit
 
         guard let simpleToast = self.simpleToast else {
             #if DEBUG
-            print("YYBottomSheet Error ::: It can't initialize simpleToast. Because keyWindow is nil.")
+            print("YYBottomSheet Error ::: It can't initialize simpleToast. Because the application has no window.")
             #endif
             return
         }

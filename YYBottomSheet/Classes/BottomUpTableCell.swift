@@ -7,7 +7,7 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 public class BottomUpTableCell: UITableViewCell {
 
     // MARK: - Static Constants

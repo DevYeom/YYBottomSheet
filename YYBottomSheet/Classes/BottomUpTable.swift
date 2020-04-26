@@ -7,7 +7,7 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 open class BottomUpTable: UIViewController {
 
     public typealias SelectHandler = (BottomUpTableCell) -> ()
@@ -290,7 +290,7 @@ open class BottomUpTable: UIViewController {
     }
 }
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 extension BottomUpTable: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray.count
