@@ -31,7 +31,8 @@ let bottomUpTable = YYBottomSheet.init(bottomUpTableTitle: title, dataArray: dat
     // whatever you want to code
     // print("\(cell.indexPath.row) : \(cell.titleLabel.text)")
 }
-bottomSheet.show()
+
+bottomUpTable.show()
 ```
 
 And button handler (SelectHandler) is just a lambda:
