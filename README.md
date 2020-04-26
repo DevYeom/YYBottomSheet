@@ -62,6 +62,7 @@ You can customize several things by setting options as below:
 | tableRowHeight | 50 |
 | tableViewCellLabelTextColor | UIColor.blue |
 | tableViewSeperatorStyle | UITableViewCell.SeparatorStyle.none |
+| tableViewBackgroundColor | UIColor.white |
 | headerViewBackgroundColor | UIColor.yellow |
 | headerViewTitleLabelTextColor | UIColor.red |
 

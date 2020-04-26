@@ -19,15 +19,7 @@ open class BottomUpTableCell: UITableViewCell {
     public var titleLabel: UILabel = UILabel.init()
     public var indexPath: IndexPath = IndexPath.init(row: 0, section: 0)
 
-    // MARK: - Life Cycle
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override public func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    // MARK: - Initialization
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,6 +27,8 @@ open class BottomUpTableCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        self.backgroundColor = .clear
 
         // setup view
         self.titleLabel.font = UIFont.systemFont(ofSize: 16)

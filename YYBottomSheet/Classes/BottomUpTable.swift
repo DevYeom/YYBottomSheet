@@ -20,7 +20,7 @@ open class BottomUpTable: UIViewController {
     private static let TableViewHeight: CGFloat = 250
     private static let TableRowHeight: CGFloat = 45
     private static let HeaderViewBackgroundColor: UIColor = UIColor(red: 247 / 255, green: 247 / 255, blue: 247 / 255, alpha: 1.0)
-    private static let TableViewBackgroundColor: UIColor = UIColor.white
+    private static let TableViewBackgroundColor: UIColor = UIColor(red: 255 / 255, green: 255 / 255, blue: 255 / 255, alpha: 1.0)
     private static let HeaderViewTitleLabelTextColor: UIColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
     private static let TableViewCellLabelTextColor: UIColor = UIColor(red: 85 / 255, green: 85 / 255, blue: 85 / 255, alpha: 1.0)
     private static let ShowDuration: Double = 0.3
@@ -101,6 +101,15 @@ open class BottomUpTable: UIViewController {
         }
     }
 
+    public var tableViewBackgroundColor: UIColor = BottomUpTable.TableViewBackgroundColor {
+        didSet {
+            weak var weakSelf = self
+            if let weakSelf = weakSelf {
+                weakSelf.tableView.backgroundColor = tableViewBackgroundColor
+            }
+        }
+    }
+
     // MARK: - Initialization
 
     init?(title: String, dataArray: Array<String>?, completion selectHandler: @escaping SelectHandler) {
@@ -176,7 +185,7 @@ open class BottomUpTable: UIViewController {
 
         // Setup TableView
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.tableViewWidth, height: self.tableViewHeight), style: .plain)
-        self.tableView.backgroundColor = BottomUpTable.TableViewBackgroundColor
+        self.tableView.backgroundColor = self.tableViewBackgroundColor
         self.tableView.separatorStyle = self.tableViewSeperatorStyle
         self.tableView.register(BottomUpTableCell.self, forCellReuseIdentifier: BottomUpTableCell.identifierForTableViewCell)
         self.tableView.tableFooterView = UIView() // hide seperator lines where you don't have a data

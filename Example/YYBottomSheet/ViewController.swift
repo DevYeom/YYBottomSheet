@@ -32,6 +32,7 @@ class ViewController: UIViewController {
             .tableRowHeight: 50,
             .tableViewCellLabelTextColor: UIColor.blue,
             .tableViewSeperatorStyle: UITableViewCell.SeparatorStyle.none,
+            .tableViewBackgroundColor: UIColor.white,
             .headerViewBackgroundColor: UIColor.yellow,
             .headerViewTitleLabelTextColor: UIColor.red
         ]
