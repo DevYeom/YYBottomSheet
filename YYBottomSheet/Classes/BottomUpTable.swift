@@ -8,36 +8,36 @@
 import UIKit
 
 @available(iOS 10.0, *)
-public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDataSource {
+open class BottomUpTable: UIViewController {
 
     public typealias SelectHandler = (BottomUpTableCell) -> ()
 
     // MARK: - Static Constants
-    fileprivate static let HeaderViewWidth: CGFloat = UIScreen.main.bounds.size.width
-    fileprivate static let HeaderViewHeight: CGFloat = 45
-    fileprivate static let TableViewWidth: CGFloat = UIScreen.main.bounds.size.width
-    fileprivate static let TableViewHeight: CGFloat = 250
-    fileprivate static let TableRowHeight: CGFloat = 45
-    fileprivate static let HeaderViewBackgroundColor: UIColor = UIColor(red: 247 / 255, green: 247 / 255, blue: 247 / 255, alpha: 1.0)
-    fileprivate static let TableViewBackgroundColor: UIColor = UIColor.white
-    fileprivate static let HeaderViewTitleLabelTextColor: UIColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
-    fileprivate static let TableViewCellLabelTextColor: UIColor = UIColor(red: 85 / 255, green: 85 / 255, blue: 85 / 255, alpha: 1.0)
-    fileprivate static let ShowDuration: Double = 0.3
-    fileprivate static let HideDuration: Double = 0.3
-    fileprivate static let BackgroundAlpha: CGFloat = 0.5
 
-    // MARK: - Variables
-    fileprivate var previousWindow: UIWindow!
-    fileprivate var contentViewWindow: UIWindow!
-    fileprivate var backgroundView: UIView!
-    fileprivate var contentView: UIView!
-    fileprivate var headerView: UIView!
-    fileprivate var headerViewTitleLabel: UILabel!
-    fileprivate var headerViewCloseButton: UIButton!
-    fileprivate var tableView: UITableView!
+    private static let HeaderViewWidth: CGFloat = UIScreen.main.bounds.size.width
+    private static let HeaderViewHeight: CGFloat = 45
+    private static let TableViewWidth: CGFloat = UIScreen.main.bounds.size.width
+    private static let TableViewHeight: CGFloat = 250
+    private static let TableRowHeight: CGFloat = 45
+    private static let HeaderViewBackgroundColor: UIColor = UIColor(red: 247 / 255, green: 247 / 255, blue: 247 / 255, alpha: 1.0)
+    private static let TableViewBackgroundColor: UIColor = UIColor.white
+    private static let HeaderViewTitleLabelTextColor: UIColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+    private static let TableViewCellLabelTextColor: UIColor = UIColor(red: 85 / 255, green: 85 / 255, blue: 85 / 255, alpha: 1.0)
+    private static let ShowDuration: Double = 0.3
+    private static let HideDuration: Double = 0.3
+    private static let BackgroundAlpha: CGFloat = 0.5
 
-    fileprivate var headerViewWidth: CGFloat = BottomUpTable.HeaderViewWidth
-    fileprivate var headerViewHeight: CGFloat = BottomUpTable.HeaderViewHeight
+    // MARK: - Properties
+
+    private var backgroundView: UIView!
+    private var contentView: UIView!
+    private var headerView: UIView!
+    private var headerViewTitleLabel: UILabel!
+    private var headerViewCloseButton: UIButton!
+    private var tableView: UITableView!
+
+    private var headerViewWidth: CGFloat = BottomUpTable.HeaderViewWidth
+    private var headerViewHeight: CGFloat = BottomUpTable.HeaderViewHeight
     public var selectHandler: SelectHandler?
     public var tableViewWidth: CGFloat = BottomUpTable.TableViewWidth
     public var tableViewHeight: CGFloat = BottomUpTable.TableViewHeight
@@ -50,7 +50,8 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     // outside touch gesture
     public var tapOutsideTouchGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
-    // MARK: - Customizable Variables
+    // MARK: - Customizable Properties
+
     public var allowTouchOutsideToDismiss: Bool = true {
         didSet {
             weak var weakSelf = self
@@ -101,11 +102,11 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     // MARK: - Initialization
+
     init?(title: String, dataArray: Array<String>?, completion selectHandler: @escaping SelectHandler) {
         super.init(nibName: nil, bundle: nil)
 
-        // check keyWindow's state
-        if viewNotReady() {
+        if windowNotReady() {
             return nil
         }
 
@@ -119,7 +120,6 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
         }
 
         self.setupViews()
-        self.setupWindow()
         self.setupAutoLayout()
     }
 
@@ -127,26 +127,21 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    // cannot use when keywindow is nil
-    func viewNotReady() -> Bool {
-        return UIApplication.shared.keyWindow == nil
+    // Cannot use when windows is nil
+    private func windowNotReady() -> Bool {
+        if UIApplication.shared.windows.isEmpty {
+            #if DEBUG
+            print("YYBottomSheet Error ::: It can't initialize BottomUpTable. Because the application has no window.")
+            #endif
+        }
+        return UIApplication.shared.windows.isEmpty
     }
 
-    func setupWindow() {
-        let window = UIWindow(frame: (UIApplication.shared.keyWindow?.bounds)!)
-        self.contentViewWindow = window
-        self.contentViewWindow.backgroundColor = UIColor.clear
-        self.contentViewWindow.rootViewController = self
-        self.previousWindow = UIApplication.shared.keyWindow
-    }
-
-    func setupViews() {
-        self.view = UIView(frame: (UIApplication.shared.keyWindow?.bounds)!)
-
+    private func setupViews() {
         // Setup Gesture
         if allowTouchOutsideToDismiss == true {
             self.tapOutsideTouchGestureRecognizer.addTarget(self, action: #selector(BottomUpTable.dismissView))
@@ -193,7 +188,7 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
         self.view.addSubview(self.contentView)
     }
 
-    func setupAutoLayout() {
+    private func setupAutoLayout() {
         // Use Autolayout
         self.backgroundView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -238,6 +233,7 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     // MARK: - Life Cycle
+
     override public func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -257,26 +253,18 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     // MARK: - BottomUpTable Usage
+
     public func show() {
-        if viewNotReady() {
+        if windowNotReady() {
             return
         }
 
-        self.contentViewWindow.addSubview(self.view)
-        self.contentViewWindow.makeKeyAndVisible()
+        self.modalPresentationStyle = .overFullScreen
+        UIApplication.topViewController()?.present(self, animated: false, completion: nil)
     }
 
-    @objc func dismissView() {
-        let completion = { (complete: Bool) -> Void in
-            if complete {
-                self.view.removeFromSuperview()
-                self.contentViewWindow.isHidden = true
-                self.contentViewWindow = nil
-                self.previousWindow.makeKeyAndVisible()
-                self.previousWindow = nil
-            }
-        }
-
+    @objc
+    public func dismissView() {
         self.view.alpha = 1
         for constraint in self.contentView.constraints {
             if constraint.firstAttribute == .height {
@@ -289,7 +277,9 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
         UIView.animate(withDuration: BottomUpTable.HideDuration, animations: {
             self.view.alpha = 0
             self.view.layoutIfNeeded()
-        }, completion: completion)
+        }) { _ in
+            self.dismiss(animated: false, completion: nil)
+        }
     }
 
     // execute when selected cell
@@ -298,8 +288,10 @@ public class BottomUpTable: UIViewController, UITableViewDelegate, UITableViewDa
             hanlder(sender)
         }
     }
+}
 
-    // MARK: - TableView Delegate
+@available(iOS 10.0, *)
+extension BottomUpTable: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray.count
     }
