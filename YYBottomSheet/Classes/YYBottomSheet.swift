@@ -8,9 +8,10 @@
 import UIKit
 
 @available(iOS 11.0, *)
-@objcMembers public class YYBottomSheet {
+@objcMembers open class YYBottomSheet {
 
     // MARK: - Enumerations
+
     public enum Components {
         case bottomUpTable
         case simpleToast
@@ -35,12 +36,14 @@ import UIKit
         case messageColor
     }
 
-    // MARK: - Component Varialbes
+    // MARK: - Component Properties
+
     public var componentType: Components
     public var bottomUpTable: BottomUpTable?
     public var simpleToast: SimpleToast?
 
     // MARK: - Initializations
+
     public init(bottomUpTableTitle title: String, dataArray: Array<String>?, options: Dictionary<YYBottomSheet.BottomUpTableOptions, Any>?, completion selectHandler: @escaping BottomUpTable.SelectHandler) {
         self.componentType = .bottomUpTable
         self.bottomUpTable = BottomUpTable.init(title: title, dataArray: dataArray, completion: selectHandler)
@@ -138,6 +141,7 @@ import UIKit
     }
 
     // MARK: - Usage
+
     public func show() {
         switch self.componentType {
         case .bottomUpTable:
