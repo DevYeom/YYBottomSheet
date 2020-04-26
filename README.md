@@ -1,6 +1,6 @@
 # YYBottomSheet
 
-![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-5.2-orange.svg)
 [![Version](https://img.shields.io/cocoapods/v/YYBottomSheet.svg?style=flat)](https://cocoapods.org/pods/YYBottomSheet)
 [![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
 [![License](https://img.shields.io/cocoapods/l/YYBottomSheet.svg?style=flat)](https://cocoapods.org/pods/YYBottomSheet)
