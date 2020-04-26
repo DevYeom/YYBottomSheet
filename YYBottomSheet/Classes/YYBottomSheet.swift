@@ -47,7 +47,7 @@ import UIKit
 
         guard let bottomUpTable = self.bottomUpTable else {
             #if DEBUG
-            print("YYBottomSheet Error ::: It can't initialize bottomUpTable. Because keyWindow is nil.")
+            print("YYBottomSheet Error ::: It can't initialize BottomUpTable. Because the application has no window.")
             #endif
             return
         }
@@ -145,5 +145,20 @@ import UIKit
         case .simpleToast:
             self.simpleToast?.show()
         }
+    }
+}
+
+internal extension UIApplication {
+    class func topViewController(root: UIViewController? = UIApplication.shared.windows.first?.rootViewController) -> UIViewController? {
+
+        if let navigation = root as? UINavigationController {
+            return topViewController(root: navigation.visibleViewController)
+        } else if let tab = root as? UITabBarController, let selected = tab.selectedViewController {
+            return topViewController(root: selected)
+        } else if let presented = root?.presentedViewController {
+            return topViewController(root: presented)
+        }
+
+        return root
     }
 }
