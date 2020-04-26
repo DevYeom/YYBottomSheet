@@ -24,6 +24,7 @@ import UIKit
         case tableRowHeight
         case tableViewCellLabelTextColor
         case tableViewSeperatorStyle
+        case tableViewBackgroundColor
         case headerViewBackgroundColor
         case headerViewTitleLabelTextColor
     }
@@ -86,6 +87,10 @@ import UIKit
             case .tableViewSeperatorStyle:
                 if let value = option.value as? UITableViewCell.SeparatorStyle {
                     bottomUpTable.tableViewSeperatorStyle = value
+                }
+            case .tableViewBackgroundColor:
+                if let value = option.value as? UIColor {
+                    bottomUpTable.tableViewBackgroundColor = value
                 }
             case .headerViewBackgroundColor:
                 if let value = option.value as? UIColor {
