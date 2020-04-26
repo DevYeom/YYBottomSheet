@@ -8,16 +8,19 @@
 import UIKit
 
 @available(iOS 11.0, *)
-public class BottomUpTableCell: UITableViewCell {
+open class BottomUpTableCell: UITableViewCell {
 
     // MARK: - Static Constants
+
     static let identifierForTableViewCell: String = "BottomUpTableCell"
 
-    // MARK: - Variables
+    // MARK: - Properties
+
     public var titleLabel: UILabel = UILabel.init()
     public var indexPath: IndexPath = IndexPath.init(row: 0, section: 0)
 
     // MARK: - Life Cycle
+
     override public func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -26,7 +29,7 @@ public class BottomUpTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
